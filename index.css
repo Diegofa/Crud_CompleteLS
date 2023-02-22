@@ -2,7 +2,12 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Shantell Sans', cursive;
 }
+.navega{
+
+}
+
 
 .encabezado{
     display: flex;
@@ -21,7 +26,7 @@ p{
     
 }
 div .formulario{
-    background-color: aliceblue;
+    background-color: rgb(34, 58, 78);
     gap: 10px;
     display: flex;
     flex-direction: column;
@@ -31,15 +36,10 @@ div .formulario{
     border-radius: 1em;
     margin: 50px 50px;
     height: 300px;
-    width: 200px;
+    width: 600px;
 }
 
-.formulario input{
-    justify-content: center;
-    border-radius: 5px;
-    width: max-content;
-    height: max-content;
-}
+
 .content{
-    background-color: rgb(114, 64, 64);
+    background-color: rgb(14, 13, 13);
 }

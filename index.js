@@ -32,11 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
       button_eliminar.appendChild(text_button_eliminar);
       div_estudiantes.appendChild(button_eliminar);
 
-      // Se agrega la función de eliminar del botón 
-      button_eliminar.onclick = ()=>{
-        elimiarLocalST(i,Estudiantes);
-
-      }
+      // Se agrega la función de eliminar del botón
+      button_eliminar.onclick = () => {
+        elimiarLocalST(i, Estudiantes);
+      };
 
       // Agregar textos y boton
       div_estudiantes.appendChild(estudiantes_grado);
@@ -60,47 +59,47 @@ document.addEventListener("DOMContentLoaded", () => {
     const estTel = input_telefono.value;
 
     const Estudiante = {
-      // Seguardan los datos capturados en los imput en un objeto
+      // Seguardan los datos capturados en los imput en un objeto JSON
       // Key    :  Value
-      Nombre: estName,
-      Apellido: estLastName,
-      Edad: estAge,
-      Correo: estMail,
-      Grado: estGrado,
-      Telefono: estTel,
+      "Nombre": estName,
+      "Apellido": estLastName,
+      "Edad": estAge,
+      "Correo": estMail,
+      "Grado": estGrado,
+      "Telefono": estTel,
     };
     console.log(Estudiante);
     Estudiantes.push(Estudiante);
     console.log(Estudiantes);
-    localStorage.setItem('Estudiantes', JSON.stringify(Estudiantes)) //setItem si existe lo actualiza si no existe lo crea
-    localStorage.clear(); //    Limpia el contenedor 
+    localStorage.setItem('Estudiantes', JSON.stringify(Estudiantes)); //setItem si existe lo actualiza si no existe lo crea
+    localStorage.clear(); //    Limpia el contenedor
 
-    for (let i = 0; i < Estudiantes.length; i++) { // Llena el contenedor con la iteración 
-        // Crear elemento div
-        const div_estudiantes = document.createElement("div");
-        const estudiantes_grado = document.createTextNode(
-          `${Estudiantes[i].Nombre} ${Estudiantes[i].Apellido} ${Estudiantes[i].Edad} ${Estudiantes[i].Correo} ${Estudiantes[i].Telefono}`
-        );
-  
-        // Crear boton eliminar
-        const button_eliminar = document.createElement("button");
-        const text_button_eliminar = document.createTextNode("Eliminar");
-        button_eliminar.appendChild(text_button_eliminar);
-        div_estudiantes.appendChild(button_eliminar);
+    for (let i = 0; i < Estudiantes.length; i++) {
+      // Llena el contenedor con la iteración
+      // Crear elemento div
+      const div_estudiantes = document.createElement("div");
+      const estudiantes_grado = document.createTextNode(
+        `${Estudiantes[i].Nombre} ${Estudiantes[i].Apellido} ${Estudiantes[i].Edad} ${Estudiantes[i].Correo} ${Estudiantes[i].Telefono}`
+      );
 
-         // Se agrega la función de eliminar del botón 
-      button_eliminar.onclick = ()=>{
-        elimiarLocalST(i,Estudiantes);
+      // Crear boton eliminar
+      const button_eliminar = document.createElement("button");
+      const text_button_eliminar = document.createTextNode("Eliminar");
+      button_eliminar.appendChild(text_button_eliminar);
+      div_estudiantes.appendChild(button_eliminar);
 
-      }
-  
-        // Agregar textos y boton
-        div_estudiantes.appendChild(estudiantes_grado);
-        div_estudiantes.append(button_eliminar);
-  
-        content_div.appendChild(div_estudiantes);
-      }
-});
+      // Se agrega la función de eliminar del botón
+      button_eliminar.onclick = () => {
+        elimiarLocalST(i, Estudiantes);
+      };
+
+      // Agregar textos y boton
+      div_estudiantes.appendChild(estudiantes_grado);
+      div_estudiantes.append(button_eliminar);
+
+      content_div.appendChild(div_estudiantes);
+    }
+  });
 
   // delete all button --> Elimina todos los registros que se encuentran en el content Div
   delete_button.addEventListener("click", () => {
@@ -111,40 +110,37 @@ document.addEventListener("DOMContentLoaded", () => {
     parrafo.append(text_parrafo);
     content_div.append(parrafo);
   });
-  
-  
-  
+
   //Función de eliminar registros del LocalStorage
-  //--> Sepuede usar splice, filter, 
-  function elimiarLocalST(i, Estudiantes){
-    Estudiantes.splice(i,1);
+  //--> Sepuede usar splice, filter,
+  function elimiarLocalST(i, Estudiantes) {
+    Estudiantes.splice(i, 1);
     localStorage.clear();
-    localStorage.setItem('Estudiantes', JSON.stringify(Estudiantes));
-    for (let i = 0; i < Estudiantes.length; i++) { // Llena el contenedor con la iteración 
-        // Crear elemento div
-        const div_estudiantes = document.createElement("div");
-        const estudiantes_grado = document.createTextNode(
-          `${Estudiantes[i].Nombre} ${Estudiantes[i].Apellido} ${Estudiantes[i].Edad} ${Estudiantes[i].Correo} ${Estudiantes[i].Telefono}`
-        );
-  
-        // Crear boton eliminar
-        const button_eliminar = document.createElement("button");
-        const text_button_eliminar = document.createTextNode("Eliminar");
-        button_eliminar.appendChild(text_button_eliminar);
-        div_estudiantes.appendChild(button_eliminar);
+    localStorage.setItem("Estudiantes", JSON.stringify(Estudiantes));
+    for (let i = 0; i < Estudiantes.length; i++) {
+      // Llena el contenedor con la iteración
+      // Crear elemento div
+      const div_estudiantes = document.createElement("div");
+      const estudiantes_grado = document.createTextNode(
+        `${Estudiantes[i].Nombre} ${Estudiantes[i].Apellido} ${Estudiantes[i].Edad} ${Estudiantes[i].Correo} ${Estudiantes[i].Telefono}`
+      );
 
-         // Se agrega la función de eliminar del botón 
-      button_eliminar.onclick = ()=>{
-        elimiarLocalST(i,Estudiantes);
+      // Crear boton eliminar
+      const button_eliminar = document.createElement("button");
+      const text_button_eliminar = document.createTextNode("Eliminar");
+      button_eliminar.appendChild(text_button_eliminar);
+      div_estudiantes.appendChild(button_eliminar);
 
-      }
-  
-        // Agregar textos y boton
-        div_estudiantes.appendChild(estudiantes_grado);
-        div_estudiantes.append(button_eliminar);
-  
-        content_div.appendChild(div_estudiantes);
-      }
+      // Se agrega la función de eliminar del botón
+      button_eliminar.onclick = () => {
+        elimiarLocalST(i, Estudiantes);
+      };
 
+      // Agregar textos y boton
+      div_estudiantes.appendChild(estudiantes_grado);
+      div_estudiantes.append(button_eliminar);
+
+      content_div.appendChild(div_estudiantes);
+    }
   }
 });
